@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Certificates", "Certificates\Certificates.csproj", "{184D11B5-33CF-4E53-9276-A1C787186DC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Certificates.WebAPI", "Certificates\Certificates.WebAPI.csproj", "{184D11B5-33CF-4E53-9276-A1C787186DC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Certificates.Interfaces", "Certificates.Interfaces\Certificates.Interfaces.csproj", "{E99CD0CC-A790-40DB-9253-3275A5578543}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Certificates.IntegrationTests", "Certificates.IntegrationTests\Certificates.IntegrationTests.csproj", "{DC60C12D-A787-41C1-A4CE-89ED2B5D418D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{184D11B5-33CF-4E53-9276-A1C787186DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{184D11B5-33CF-4E53-9276-A1C787186DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{184D11B5-33CF-4E53-9276-A1C787186DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E99CD0CC-A790-40DB-9253-3275A5578543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E99CD0CC-A790-40DB-9253-3275A5578543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E99CD0CC-A790-40DB-9253-3275A5578543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E99CD0CC-A790-40DB-9253-3275A5578543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC60C12D-A787-41C1-A4CE-89ED2B5D418D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC60C12D-A787-41C1-A4CE-89ED2B5D418D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC60C12D-A787-41C1-A4CE-89ED2B5D418D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC60C12D-A787-41C1-A4CE-89ED2B5D418D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
