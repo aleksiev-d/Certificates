@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Certificates.Interfaces;
 using Certificates.WebAPI.BL;
@@ -6,17 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Certificates.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [Route("api/certificates")]
     [ApiController]
     public class CertificatesController : BaseController
     {
-        // GET api/values
-        //[HttpGet]
-        //public ActionResult<IEnumerable<string>> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+       // GET api/values
+       [HttpGet]
+        public ActionResult<IEnumerable<Certificate>> Get()
+        {
+            return Ok(Certificates);
+        }
 
         /*
          /certificates[/:certificateId]
@@ -58,7 +58,7 @@ namespace Certificates.WebAPI.Controllers
                 var addedOk = TryAddCertificate(certificate, certificateId);
 
                 if (addedOk)
-                    return CreatedAtRoute("api/certificates/certificateId", certificate);
+                    return Ok(certificate);
             }
 
             // addition was unsuccessful
@@ -71,13 +71,14 @@ namespace Certificates.WebAPI.Controllers
         public ActionResult<Certificate> Post(string certificateId, [FromBody] Certificate certificate)
         {
             var objectValid = Validator.Validate(certificateId);
+            objectValid = Validator.ValidateNoId(certificate);
 
             if (objectValid)
             {
                 var addedOk = TryAddCertificate(certificate, certificateId);
 
                 if (addedOk)
-                    return CreatedAtRoute("api/certificates/certificateId", certificate);
+                    return Ok(certificate);
             }
 
             // addition was unsuccessful
@@ -221,13 +222,13 @@ namespace Certificates.WebAPI.Controllers
 
         private bool TryAddCertificate(Certificate certificate, string certificateId)
         {
-            if (!Certificates.Contains(certificate) && Certificates.All(s => s.Id != certificateId))
+            if (Certificates.Contains(certificate) || Certificates.Any(s => s.Id == certificateId))
             {
-                Certificates.Add(certificate);
-                return true;
+                return false;
             }
 
-            return false;
+            Certificates.Add(certificate);
+            return true;
         }
 
 

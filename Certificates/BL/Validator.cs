@@ -16,9 +16,8 @@ namespace Certificates.WebAPI.BL
 
         public static bool ValidateNoId(Certificate certificate)
         {
-            return (!(certificate.Title is null) && !(certificate.OwnerId is null));
+            return (!(certificate.Title is null) && !(certificate.OwnerId is null) && !(certificate.CreatedAt > DateTime.Now));
         }
-
 
         public static bool ValidateWithId(Certificate certificate)
         {

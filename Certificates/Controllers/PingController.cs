@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Certificates.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [Route("api/ping")]
     [Route("api/status")]
     [ApiController]
@@ -13,7 +12,7 @@ namespace Certificates.WebAPI.Controllers
         [HttpGet]
         public ActionResult<Pong> Get()
         {
-            return new Pong(ControllerContext.ToString());
+            return new Pong("Service is Up and Running!");
         }
     }
 }

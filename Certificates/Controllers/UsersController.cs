@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Certificates.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [Route("api/users")]
     [ApiController]
     public class UsersController : BaseController
@@ -14,7 +13,7 @@ namespace Certificates.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
         {
-            return Users;
+            return Ok(Users);
         }
 
         // GET api/users/5/

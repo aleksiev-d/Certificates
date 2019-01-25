@@ -10,6 +10,7 @@ namespace Certificates.Interfaces
         private static readonly MailAddress DontRespondEmail = new MailAddress("donotrespond@email.com");
 
         public string Id { get; set; }
+
         public string Title { get; set; }
 
         public DateTime CreatedAt { get; set; }
